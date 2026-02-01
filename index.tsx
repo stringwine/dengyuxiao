@@ -6,15 +6,17 @@ import App from './App';
 const container = document.getElementById('root');
 
 if (container) {
-  // 清除初始加载状态
-  container.innerHTML = '';
+  // 确保在渲染前容器是空的
+  if (container.querySelector('.loading-state')) {
+    container.innerHTML = '';
+  }
   const root = createRoot(container);
   root.render(
     <React.StrictMode>
       <App />
     </React.StrictMode>
   );
-  console.log("Portfolio System: Online and Operational");
+  console.log("Portfolio System: Online");
 } else {
-  console.error("Critical Failure: UI Root node not found in DOM.");
+  console.error("Critical: UI Root not found.");
 }
